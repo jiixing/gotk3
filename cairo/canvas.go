@@ -139,6 +139,9 @@ func (v *Context) SetSourceRGBA(red, green, blue, alpha float64) {
 }
 
 // TODO(jrick) SetSource (depends on Pattern)
+func (v *Context) SetSourcePattern(source *Pattern) {
+	C.cairo_set_source(v.native(), source.native())
+}
 
 // SetSourceSurface is a wrapper around cairo_set_source_surface().
 func (v *Context) SetSourceSurface(surface *Surface, x, y float64) {
